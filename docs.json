@@ -18,15 +18,22 @@
             "pages": ["introduction", "definitions", "architecture"]
           },
           {
-            "group": "Essentials",
+            "group": "Platform Essentials",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "platform/smartAgentProfile",
+              "platform/smartAgentBuilder",
+              "platform/smartAgentActions",
+              "platform/smartAgentSteps",
+              "platform/settings",
+              "platform/evals",
+              "platform/knowledgeManagement",
+              "platform/qaQueue",
+              "platform/reporting"
             ]
+          },
+          {
+            "group": "Security",
+            "pages": ["security/general", "security/FAQ"]
           }
         ]
       },
