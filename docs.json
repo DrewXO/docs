@@ -1,0 +1,69 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "XtendOps Documentation",
+  "colors": {
+    "primary": "#113eee",
+    "light": "#7db3fa",
+    "dark": "#113eee"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "definitions", "architecture"]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/XO logo.svg",
+    "dark": "/logo/XO logo-white.svg"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Login",
+      "href": "https://xoos.xtendops.com/auth/login"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://www.xtendops.com/",
+      "linkedin": "https://www.linkedin.com/company/xtendops"
+    }
+  }
+}
