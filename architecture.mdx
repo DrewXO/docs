@@ -1,0 +1,199 @@
+---
+title: Platform Architecture
+description: Understanding the XtendOps platform structure and components
+icon: "sitemap"
+---
+
+The **XtendOps Platform** (XO_AI) is a comprehensive system for building, managing, and monitoring SmartAgents. This page provides an overview of the platform's architecture and how its components work together.
+
+## Platform Overview
+
+XO_AI is a platform where you can build, manage, and monitor **SmartAgents** — BPO-focused AI agents designed to handle customer interactions through automated workflows.
+
+## Core Components
+
+### Customer Portal (xoos.xtendops.com)
+
+The main platform interface where users access all SmartAgent functionality:
+
+- **Dashboard** - Landing page with overview of SmartAgents and metrics
+- **SmartAgent Builder** - Visual workflow editor
+- **Testing Suite** - Eval management and testing
+- **Quality** - Feedback collection and review
+- **Knowledge Management** - Article repository
+- **Voice of the Customer** - Conversation analysis
+- **Settings** - User, integration, and AI key management
+
+### Co-Pilot App (agent-assist.xtendops.com)
+
+The interface agents use when working with a Co-Pilot SmartAgent. Typically embedded into external provider platforms such as Gladly, Salesforce, and Zendesk.
+
+**Key Features:**
+- AI-suggested responses
+- Quick Actions access
+- Command line interface
+- Message editing and feedback
+
+[Learn more about the Co-Pilot App →](/coPilot)
+
+### Other Components
+
+**XO Design Library**
+Design system and component library for consistent UI/UX.
+
+**Talent Portal (talent.xtendops.com)**
+Legacy tool for applicant tracking and talent acquisition management. No integration with XOAI.
+
+## Data Flow
+
+### Automated SmartAgent
+
+```
+Customer Message
+  ↓
+SmartAgent (Platform)
+  ↓
+[Steps Execute]
+  ├→ Knowledge Search
+  ├→ API Calls
+  ├→ LLM Processing
+  └→ Structured Output
+  ↓
+Response to Customer
+  ↓
+[Optional] Events Trigger
+  ├→ On First Generation Complete
+  └→ QA Rules / Logging
+```
+
+### Co-Pilot SmartAgent
+
+```
+Customer Message
+  ↓
+Co-Pilot SmartAgent
+  ↓
+AI-Generated Draft
+  ↓
+Co-Pilot App (Agent Interface)
+  ↓
+[Agent Reviews/Edits]
+  ├→ Can trigger Quick Actions
+  ├→ Can regenerate response
+  └→ Provides feedback
+  ↓
+Final Message to Customer
+  ↓
+Feedback Score Calculated
+```
+
+## Integration Points
+
+### External Platforms
+
+SmartAgents can integrate with external systems via:
+
+**REST API Call Step:**
+- Salesforce
+- Zendesk
+- Shopify
+- Custom APIs
+- Payment gateways
+
+**Embedded Co-Pilot:**
+- Gladly
+- Salesforce Service Cloud
+- Zendesk
+
+### AI Providers
+
+The platform supports multiple AI providers:
+- OpenAI (GPT models)
+- Anthropic (Claude)
+- Google (Vertex AI, Gemini)
+- Azure OpenAI
+- Custom endpoints
+
+### Data Platforms
+
+**BI Integration:**
+- Feedback data flows to BI platform
+- Performance metrics exported
+- Quality scores tracked
+- Usage analytics
+
+## Security Architecture
+
+### Authentication
+- Username/Password
+- Google Sign-In
+- Role-based access control (RBAC)
+
+### Data Isolation
+- Client accounts are isolated
+- Permissions enforced per account
+- Data segregation at account level
+
+### Credential Management
+- API credentials stored in Integrations
+- AI keys centrally managed
+- Secrets separated from workflows
+
+[Learn more about security →](/security/general)
+
+## Deployment Model
+
+### Client Accounts
+
+Each customer gets their own isolated workspace:
+- Dedicated SmartAgents
+- Separate metrics and reporting
+- Custom configurations
+- Independent access controls
+
+### Multi-Tenancy
+
+The platform supports multiple client accounts with:
+- Shared infrastructure
+- Isolated data
+- Account-specific permissions
+- Custom branding (where applicable)
+
+## Platform Capabilities
+
+### Build
+- Visual workflow builder
+- Modular step library
+- Version control
+- Event triggers
+
+### Test
+- Eval creation and management
+- Regression testing
+- Performance benchmarking
+- Step simulation
+
+### Deploy
+- Version management
+- Gradual rollouts
+- Rollback capabilities
+- Environment separation
+
+### Monitor
+- Real-time metrics
+- Quality feedback
+- Conversation analysis
+- Voice of the Customer insights
+
+### Optimize
+- A/B testing via evals
+- Performance trending
+- Feedback-driven improvements
+- Knowledge base updates
+
+## Related Pages
+
+- [Introduction](/introduction) - Get started with the platform
+- [Definitions](/definitions) - Key terminology
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Build workflows
+- [Settings](/platform/settings) - Configure integrations

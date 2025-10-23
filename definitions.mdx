@@ -1,0 +1,116 @@
+---
+title: Definitions & Glossary
+description: Key terminology and concepts for the XtendOps platform
+icon: "book-open"
+---
+
+Understanding the terminology used throughout the XtendOps platform is essential for effective use. This glossary provides definitions for key concepts, features, and technical terms.
+
+## Core Concepts
+
+### SmartAgent
+
+XtendOps' take on AI agents — BPO-focused AI agents designed specifically to meet customer needs. SmartAgents are configurable workflows that combine multiple steps to handle customer interactions automatically or assist human agents.
+
+### XO_AI / Customer Portal / Xoos
+
+Synonyms for the main platform where users log in to view, manage, and build SmartAgents and access the Dashboard.
+
+**Background:**
+- **Xoos** - Legacy name from before XOAI branding, originally stood for "XO Operating System" and used as the domain name
+- **CustomerPortal** - Older term from when there were separate portals (e.g., TalentPortal for recruiting and CustomerPortal for client-facing tools)
+- **XOAI** - Current preferred term, representing the application where the core AI offerings are accessed
+
+### Client Account
+
+A workspace for a specific customer (e.g., "HelloFresh Client Account", "Warby Client Account").
+
+**Characteristics:**
+- Contains its own SmartAgents, metrics, and settings
+- Access permissions are specific to each client account
+- Data is isolated between client accounts
+
+## Conversation Components
+
+### Conversation
+
+The parent container for all back-and-forth messages between a single user and the system. A conversation maintains context across multiple message exchanges.
+
+### Message
+
+An individual input from a customer into the AI, grouped into a Conversation. Each message triggers SmartAgent processing and generates a response.
+
+### Background Context
+
+Conversation-level information available to a SmartAgent for subsequent runs.
+
+**Sources:**
+- May be passed from a provider
+- Extracted via AI
+- Used to maintain continuity and context across multiple messages in a conversation
+
+## Performance Metrics
+
+### Feedback Score / Accuracy Score / Assist Score
+
+Synonyms for a performance metric used primarily in Co-Pilot use cases to measure how closely the AI-generated response matches the final message sent by the agent.
+
+**Calculation:**
+Calculated using an algorithm that compares the original AI draft with the modified agent version.
+
+### Resolution Score / Confinement Score
+
+*(Term still being finalized)*
+
+Metric for automated use cases that measures how many conversations are resolved without escalation to a human agent.
+
+## Testing & Quality
+
+### Eval
+
+A group of messages and inputs used to evaluate SmartAgent performance. Evals are often created from real-world conversation data and can be tailored for specific purposes (e.g., all greetings, all resolutions) or designed as a "golden standard" sampling of many conversation types.
+
+### Run
+
+The execution of an Eval against one or more versions of a SmartAgent, producing results and performance metrics.
+
+### Test
+
+An individual message and its input, drawn from the eval dataset.
+
+## Technical Concepts
+
+### Semantic Similarity
+
+An AI concept measuring how closely two pieces of text match in meaning, even if they use different wording. Used to cluster or retrieve related information.
+
+**Applications:**
+- Knowledge article retrieval
+- Voice of the Customer queries
+- Conversation matching
+- Content recommendations
+
+### Data Tags
+
+Metadata assigned to conversations to assist with reporting and filtering.
+
+**Examples:**
+- Intent (e.g., order_status, return_request)
+- Sentiment (positive, negative, neutral)
+- Product category
+- Issue type
+- Resolution status
+
+## Legacy Terms
+
+### Talent Portal
+
+Legacy tool for applicant tracking and talent acquisition management. Applicants apply to jobs here, and the talent acquisition team manages applications.
+
+**Note:** There is no integration between TalentPortal and XOAI.
+
+## Related Pages
+
+- [Introduction](/introduction) - Get started with XtendOps
+- [Platform Essentials](/platform/smartAgentBuilder) - Learn about platform features
+- [Personas](/personas) - Understand user roles and permissions

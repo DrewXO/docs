@@ -1,0 +1,239 @@
+---
+title: Co-Pilot App
+description: AI assistant interface for human agents
+icon: "user-headset"
+---
+
+The **Co-Pilot App** is the interface agents use when working with a Co-Pilot SmartAgent. It is typically embedded into external provider platforms such as Gladly, Salesforce, and Zendesk.
+
+## Overview
+
+The Co-Pilot App streamlines agent workflows, enhances AI-assisted messaging, and provides quick access to contextual tools. It operates as a side-by-side assistant, suggesting responses that agents can review, edit, and send.
+
+## Interface Components
+
+### Summary Section
+
+Displays dynamic, high-priority information to help agents make informed decisions quickly.
+
+**Content Types:**
+- Customer information
+- Order details
+- Conversation history summary
+- Relevant policies or procedures
+- Priority indicators
+
+**Dynamic Updates:**
+Content swaps based on conversation context, showing what's most relevant at each stage.
+
+### Edit Window
+
+Shows the AI-suggested response that agents can edit before sending.
+
+**Features:**
+- Full text editing capabilities
+- Formatting options (bold, italic, lists)
+- Character/word count
+- Preview mode
+
+**Agent Actions:**
+- Edit directly in the window
+- Accept as-is
+- Request regeneration
+- Trigger Quick Actions for modifications
+
+**Quality Assurance:**
+Agents ensure accuracy, tone, and compliance with guidelines before sending.
+
+### Command Line
+
+Allows agents to trigger specific Quick Actions via typed commands.
+
+**Example Usage:**
+```
+/friendlier
+```
+Triggers a Quick Action to rephrase the response in a friendlier tone with emojis.
+
+**Common Commands:**
+- `/friendlier` - Add friendly tone and emojis
+- `/formal` - Make more professional
+- `/summarize` - Condense the response
+- `/expand` - Provide more detail
+- `/[custom-action]` - Any configured Quick Action
+
+[Learn more about Quick Actions →](/platform/smartAgentActions)
+
+### Quick Actions Access
+
+Agents can directly trigger configured Quick Actions from the app, including timer-based responses.
+
+**Access Methods:**
+- Command line (text-based)
+- Button shortcuts
+- Context menu
+
+**Capabilities:**
+- Response suggestions
+- CRM updates
+- Knowledge lookups
+- Custom workflows
+
+### Message Controls
+
+#### Regenerate
+Request a new AI-generated draft with different wording or approach.
+
+**Use When:**
+- Initial suggestion misses the mark
+- Want alternative phrasing
+- Need different tone
+
+#### Copy
+Copy the message to clipboard for use elsewhere.
+
+**Use Cases:**
+- Paste into external systems
+- Save for templates
+- Share with team members
+
+#### Feedback
+Provide thumbs-up/thumbs-down feedback on the AI suggestion.
+
+**Feedback Types:**
+- **Thumbs Up** - AI suggestion was helpful
+- **Thumbs Down** - AI suggestion needs improvement
+- **Reason** - Categorized reason for feedback
+- **Comment** - Optional detailed explanation
+
+**Impact:**
+- Integrated into BI platform for reporting
+- Informs SmartAgent improvements
+- Tracks quality trends
+
+#### Send
+Finalize and send the response to the customer.
+
+**Workflow:**
+1. Review AI suggestion
+2. Make any necessary edits
+3. Verify accuracy and tone
+4. Click Send
+5. (Optional) Provide feedback
+
+## Integration with External Platforms
+
+### Gladly
+- Embedded in conversation sidebar
+- Access to customer timeline
+- Integrated contact history
+
+### Salesforce Service Cloud
+- Side panel integration
+- Case information display
+- CRM data access
+
+### Zendesk
+- Ticket sidebar app
+- Access to ticket fields
+- Customer context
+
+## Agent Workflow
+
+### 1. Customer Message Arrives
+Agent receives customer inquiry in their platform.
+
+### 2. AI Generates Suggestion
+Co-Pilot SmartAgent processes the message and generates a suggested response.
+
+### 3. Agent Reviews
+Agent sees:
+- AI-suggested response in Edit Window
+- Relevant context in Summary Section
+- Available Quick Actions
+
+### 4. Agent Edits (If Needed)
+Agent may:
+- Accept as-is
+- Make minor edits
+- Trigger Quick Actions to modify
+- Regenerate entirely
+
+### 5. Agent Sends
+After review, agent sends the final message to the customer.
+
+### 6. Feedback Collected
+System calculates **Assist Score** comparing:
+- AI-generated draft
+- Final sent message
+
+## Performance Metrics
+
+### Assist Score / Feedback Score / Accuracy Score
+
+Measures how closely the AI-generated response matches the final message sent by the agent.
+
+**High Score:**
+- Agent sent AI suggestion with minimal changes
+- Indicates high AI quality
+- Reduces agent effort
+
+**Low Score:**
+- Agent made significant edits
+- AI suggestion may need improvement
+- Opportunity for SmartAgent optimization
+
+### Efficiency Gains
+
+**Metrics Tracked:**
+- Average handle time (AHT) reduction
+- Messages per hour increase
+- First contact resolution improvement
+- Agent satisfaction scores
+
+## Benefits
+
+### For Agents
+- Faster response times
+- Reduced mental load
+- Consistent quality
+- Easy access to knowledge
+- Tone guidance
+
+### For Customers
+- Quicker responses
+- Accurate information
+- Consistent experience
+- Quality interactions
+
+### For Organizations
+- Improved efficiency
+- Reduced training time
+- Quality consistency
+- Scalable support
+- Data-driven optimization
+
+## Best Practices
+
+1. **Review Before Sending** - Always verify AI suggestions for accuracy
+2. **Use Quick Actions** - Leverage commands for common modifications
+3. **Provide Feedback** - Help improve AI quality with thumbs up/down
+4. **Edit When Needed** - Don't send if something feels off
+5. **Learn Patterns** - Notice what works well and share with team
+
+## Access Control
+
+Co-Pilot App access is controlled via the **Agent** role:
+
+- Access limited to the Co-Pilot App only
+- No access to SmartAgent Builder or other platform features
+- Permissions granted within their external system (Gladly, Salesforce, etc.)
+
+[Learn more about user roles →](/personas)
+
+## Related Pages
+
+- [Quick Actions](/platform/smartAgentActions) - Configure available commands
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Build Co-Pilot SmartAgents
+- [Quality](/platform/qaQueue) - Review Co-Pilot performance
+- [Settings](/platform/settings) - Manage user access

@@ -1,5 +1,190 @@
 ---
-title: Reporting
-description: Frequently Asked Questions
-icon: ""
+title: Voice of the Customer
+description: Explore customer conversations to uncover trends and insights
+icon: "chart-line"
 ---
+
+**Voice of the Customer** supplements traditional BI reporting by providing the *story* or *why* behind the numbers — insights that are often missing from raw reports.
+
+## Overview
+
+While traditional BI tools excel at showing *what* is happening (metrics, trends, volumes), Voice of the Customer reveals *why* it's happening by analyzing actual customer conversations. This qualitative layer adds context and meaning to quantitative data.
+
+## Purpose
+
+Enable exploration of customer conversations to uncover:
+- Trends and patterns
+- Customer sentiment
+- Qualitative insights
+- Root causes behind metrics
+- Emerging issues
+
+**Key Principle:** Works *alongside* BI tools rather than replacing them.
+
+## Interface
+
+### Chat Box
+
+Perplexity-style interface where users can type questions directly.
+
+**Example Questions:**
+- "What are customers saying about delivery delays?"
+- "Why are customers canceling their accounts?"
+- "What features are customers requesting most?"
+
+### Charts and Graphs
+
+Pre-built visualizations that can pre-populate specific, filterable questions.
+
+**Examples:**
+- Message trends over time
+- Topic volume by date
+- Sentiment distribution
+- Category breakdowns
+
+### Top Trending Topics
+
+Displays the most discussed topics from the past seven days.
+
+**Automatically identifies:**
+- Emerging issues
+- Popular questions
+- Common complaints
+- Feature requests
+
+### Chat History
+
+Shows questions and conversations asked by other users in the account, allowing quick access to shared insights.
+
+**Benefits:**
+- Avoid duplicate analyses
+- Learn from others' queries
+- Build on existing insights
+- Share discoveries
+
+## Data Flow
+
+### 1. Conversation Sampling
+The platform samples conversations that flow through the system.
+
+### 2. AI Summarization
+AI summarizes these conversations and assigns **data tags** to assist with reporting and filtering.
+
+**Data Tags:**
+- Intent (e.g., order_status, return_request)
+- Sentiment (positive, negative, neutral)
+- Product category
+- Issue type
+- Resolution status
+
+### 3. Indexing
+Conversations become available for Voice of the Customer queries.
+
+## Query Process
+
+### 1. Filter
+The question is filtered by:
+- Intent
+- Data tag
+- Date range
+- SmartAgent
+
+### 2. Semantic Search
+A semantic search is performed against matching conversation summaries.
+
+### 3. Threshold Matching
+The system aggregates conversations exceeding a similarity threshold.
+
+### 4. Summarization
+These conversations are compiled and processed by a model to generate a summarized, cohesive insight.
+
+## Advanced Capabilities
+
+### Adjust Thresholds
+Refine result specificity by changing similarity thresholds.
+
+**Lower Threshold:**
+- More conversations included
+- Broader insights
+- May include less relevant results
+
+**Higher Threshold:**
+- Fewer, more relevant conversations
+- More specific insights
+- May miss edge cases
+
+### Follow-Up Questions
+Ask follow-up questions to dig deeper into the data.
+
+**Example Flow:**
+1. "What are common shipping complaints?"
+2. "Which products have the most shipping issues?"
+3. "What specific problems are customers reporting?"
+
+### View Source Conversations
+Access source conversations that contributed to the summarized response for transparency and validation.
+
+**Benefits:**
+- Verify AI interpretations
+- See actual customer language
+- Identify outliers
+- Extract specific quotes
+
+## Use Cases
+
+### Customer Support
+- Identify recurring issues
+- Understand complaint patterns
+- Discover knowledge gaps
+- Improve documentation
+
+### Product Development
+- Collect feature requests
+- Understand pain points
+- Validate assumptions
+- Prioritize roadmap
+
+### Operations
+- Spot process bottlenecks
+- Identify training needs
+- Optimize workflows
+- Reduce friction points
+
+### Marketing
+- Understand customer language
+- Identify value propositions
+- Discover use cases
+- Refine messaging
+
+## Best Practices
+
+1. **Start Broad, Then Narrow** - Begin with general questions, then drill down
+2. **Use Date Filters** - Focus on recent data for current issues
+3. **Check Source Conversations** - Validate insights with actual examples
+4. **Share Insights** - Use Chat History to collaborate with team members
+5. **Combine with BI** - Use quantitative data to guide qualitative exploration
+
+## Comparison to Traditional BI
+
+| Traditional BI | Voice of the Customer |
+|---|---|
+| What is happening? | Why is it happening? |
+| Metrics and trends | Stories and context |
+| Quantitative data | Qualitative insights |
+| Structured data | Unstructured conversations |
+| Dashboards and reports | Natural language queries |
+
+## Example Questions
+
+- "What are customers saying about [product/feature]?"
+- "Why are customers contacting support?"
+- "What are the most common complaints this week?"
+- "How do customers feel about [recent change]?"
+- "What features are customers requesting?"
+- "What's causing [metric spike/drop]?"
+
+## Related Pages
+
+- [Quality](/platform/qaQueue) - Review individual conversations
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Improve SmartAgents based on insights
+- [Knowledge Management](/platform/knowledgeManagement) - Update knowledge based on customer needs

@@ -1,5 +1,181 @@
 ---
-title: Steps Types
-description: Frequently Asked Questions
-icon: ""
+title: Step Types
+description: Modular building blocks for SmartAgent workflows
+icon: "layer-group"
 ---
+
+**Steps** are modular building blocks that can be mixed, matched, and connected together to form workflows for a specific SmartAgent.
+
+## Available Step Types
+
+### Call SmartAgent
+
+Allows one SmartAgent to call another, enabling modular, purpose-built designs for specific intents or functions.
+
+**Use Cases:**
+- Break complex workflows into manageable sub-agents
+- Reuse common logic across multiple SmartAgents
+- Delegate specific tasks to specialized agents
+
+### Q*
+
+A self-improving, self-learning step that learns from agent modifications to continuously improve output.
+
+**Key Features:**
+- Learns from changes made to SmartAgent configurations
+- Automatically refines responses over time
+- Requires no manual retraining
+
+### Structured Output
+
+Converts information into a controlled, structured format for use across systems, in API calls, or as conversation background data.
+
+**Use Cases:**
+- Format data for API consumption
+- Create consistent data structures
+- Extract structured information from conversations
+
+### JavaScript Code
+
+Executes logic to manipulate data, perform arithmetic, or apply conditional logic.
+
+**Capabilities:**
+- Data transformation
+- Mathematical calculations
+- Conditional branching
+- String manipulation
+- Custom business logic
+
+### Knowledge Search
+
+Retrieves specific articles based on filters and similarity search to add context to interactions.
+
+**Features:**
+- Semantic similarity matching
+- Filter-based article retrieval
+- Context injection for AI responses
+- Integration with Knowledge Management
+
+[Learn more about Knowledge Management →](/platform/knowledgeManagement)
+
+### REST API Call
+
+Connects to external systems using GET, POST, PUT, or PATCH requests with authentication support.
+
+**Features:**
+- Full HTTP method support
+- Authentication (Bearer, API Key, Basic Auth)
+- Header customization
+- Request/response transformation
+- Secure credential storage via Integrations
+
+### LLM Step
+
+Uses prompts to generate AI-driven responses — the core AI step for many SmartAgent workflows.
+
+**Key Features:**
+- Customizable prompts with dynamic variables
+- Model selection override
+- Temperature and parameter control
+- Context injection from previous steps
+
+### Router
+
+Routes workflow execution to different steps based on defined conditions (e.g., conversation stage or intent).
+
+**Use Cases:**
+- Intent-based routing
+- Conditional workflow branching
+- Stage-specific handling
+- Error handling paths
+
+## Step Features
+
+Additional capabilities that can be applied to any step:
+
+### Step Simulation
+
+Runs an individual step with custom inputs to view outputs, enabling targeted unit testing.
+
+**Benefits:**
+- Test steps in isolation
+- Debug specific workflow sections
+- Validate step configurations
+- Iterate quickly without full workflow runs
+
+### Play All
+
+Executes the full SmartAgent from the top with specified inputs to test the entire workflow.
+
+**Use Cases:**
+- End-to-end testing
+- Validation before deployment
+- Demonstration and training
+- Regression testing
+
+### Settings
+
+Step-specific configurations such as:
+- Override LLM model selection
+- Adjust prompts using dynamic variables
+- Configure timeout values
+- Set retry logic
+- Define error handling
+
+### Outputs
+
+Defines the step's output name, next steps, and where results go (e.g., Co-Pilot or directly to the user).
+
+**Configuration Options:**
+- Output variable naming
+- Next step routing
+- Conditional outputs
+- Multiple output paths
+
+### Advanced Settings
+
+Specialized options for niche use cases, typically not needed in standard workflows.
+
+**Examples:**
+- Custom retry policies
+- Specialized logging
+- Performance tuning
+- Edge case handling
+
+## Events
+
+Triggers within a conversation that initiate predefined chains of steps:
+
+### On Conversation Start
+
+Runs when a new conversation begins, before the main SmartAgent executes.
+
+**Common Uses:**
+- Prepare context
+- Fetch external data (customer info, order history, etc.)
+- Generate conversation summaries
+- Initialize background variables
+
+### On First Generation Complete
+
+Runs after the first AI response is generated to perform follow-up actions.
+
+**Common Uses:**
+- Logging and analytics
+- Additional processing
+- API calls to update external systems
+- Quality assurance checks
+
+## Best Practices
+
+1. **Keep Steps Focused** - Each step should have a single, clear purpose
+2. **Use Routers Wisely** - Route based on intent or conversation stage for clarity
+3. **Test Incrementally** - Use Step Simulation to test individual steps
+4. **Name Outputs Clearly** - Use descriptive names for step outputs
+5. **Leverage Events** - Use conversation events to prepare context efficiently
+
+## Related Pages
+
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Build and configure workflows
+- [SmartActions](/platform/smartAgentActions) - Reusable task-specific workflows
+- [Testing](/platform/evals) - Test and validate your workflows

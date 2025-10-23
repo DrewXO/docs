@@ -15,7 +15,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "definitions", "architecture"]
+            "pages": ["introduction", "definitions", "architecture", "dashboard", "personas"]
           },
           {
             "group": "Platform Essentials",
@@ -32,8 +32,12 @@
             ]
           },
           {
+            "group": "Agent Tools",
+            "pages": ["coPilot"]
+          },
+          {
             "group": "Security",
-            "pages": ["security/general", "security/FAQ"]
+            "pages": ["security/general", "security/faq"]
           }
         ]
       },

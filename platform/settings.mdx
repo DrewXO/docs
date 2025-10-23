@@ -1,5 +1,163 @@
 ---
 title: Settings
-description: Frequently Asked Questions
-icon: ""
+description: Centralized configuration for user access, integrations, and AI models
+icon: "gear"
 ---
+
+**Settings** provides centralized configuration for user access, external connections, and AI model keys. This is the administrative hub for your XtendOps workspace.
+
+## Overview
+
+Settings is organized into tabs that manage different aspects of your workspace configuration, from user permissions to API integrations to AI provider keys.
+
+## Tabs
+
+### Users
+
+User management for the workspace.
+
+**User Roles:**
+- **Admin** - Full platform access including user, integration, and AI key management
+- **Customer** - View-only access to SmartAgents, Quality, Knowledge Management, and Voice of the Customer
+- **Builder** - Full platform access except user, integration, and AI key management
+- **Agent** - Access limited to the Co-Pilot App (if granted permission in their system)
+
+**Authentication Methods:**
+- Username/Password
+- Google Sign-In
+
+**User Management Features:**
+- Invite new users
+- Assign/change roles
+- Enable/disable accounts
+- View last login times
+- Track user activity
+
+[Learn more about user roles and permissions →](/personas)
+
+### Integrations
+
+Secure storage for external API credentials used by the REST API Call step in SmartAgent Builder.
+
+**Purpose:**
+Store secrets here and reference them from the REST step instead of pasting raw tokens in the builder.
+
+**Benefits:**
+- **Improved Security** - Credentials stored separately from workflows
+- **Easier Rotation** - Update credentials without modifying SmartAgents
+- **Centralized Management** - One place for all API credentials
+- **Access Control** - Limit who can view/edit credentials
+
+**Supported Authentication Types:**
+- API Keys
+- Bearer Tokens
+- OAuth credentials
+- Basic Auth
+- Custom headers
+
+**Integration Examples:**
+- Salesforce
+- Zendesk
+- Shopify
+- Custom internal APIs
+- Payment gateways
+
+[Learn more about REST API Call step →](/platform/smartAgentSteps)
+
+### AI Keys
+
+Central place to register AI provider keys to enable usage tracking and cost/usage reporting by model.
+
+**Supported Providers:**
+- OpenAI
+- Anthropic
+- Google (Vertex AI, Gemini)
+- Azure OpenAI
+- Custom endpoints
+
+**Key Features:**
+- Usage tracking by model
+- Cost attribution
+- Pricing analytics
+- Spend reporting
+- Model performance metrics
+
+**Reporting Capabilities:**
+- **Cost per Conversation** - Track AI costs at the conversation level
+- **Model Usage** - See which models are used most frequently
+- **Token Consumption** - Monitor token usage across SmartAgents
+- **Spend Trends** - Analyze cost trends over time
+- **Attribution** - Attribute costs to specific SmartAgents or client accounts
+
+### Feature Flags
+
+*(Not shown in PDF but commonly part of settings)*
+
+Control access to beta features and experimental functionality.
+
+### Command Center
+
+*(Referenced in PDF as a tab)*
+
+Access to system-level commands and administrative functions.
+
+## Security Best Practices
+
+### For Integrations
+1. **Rotate Regularly** - Update API credentials on a schedule
+2. **Principle of Least Privilege** - Only grant necessary permissions
+3. **Audit Access** - Track who accesses integration credentials
+4. **Use Service Accounts** - Don't use personal credentials for integrations
+
+### For AI Keys
+1. **Monitor Spend** - Set up alerts for unusual usage
+2. **Separate by Environment** - Use different keys for dev/staging/production
+3. **Track Attribution** - Understand which SmartAgents drive costs
+4. **Review Regularly** - Audit model usage and optimize costs
+
+### For Users
+1. **Onboard/Offboard Promptly** - Add and remove users as needed
+2. **Right-Size Roles** - Assign minimal permissions needed
+3. **Enforce MFA** - Require multi-factor authentication where possible
+4. **Review Regularly** - Audit user access quarterly
+
+## Common Workflows
+
+### Adding a New Integration
+
+1. Navigate to **Settings → Integrations**
+2. Click **Add Integration**
+3. Enter integration name and credentials
+4. Save integration
+5. Reference integration in REST API Call steps using the integration name
+
+### Registering an AI Provider
+
+1. Navigate to **Settings → AI Keys**
+2. Click **Add AI Key**
+3. Select provider (OpenAI, Anthropic, etc.)
+4. Enter API key
+5. (Optional) Set cost tracking preferences
+6. Save
+
+### Inviting a New User
+
+1. Navigate to **Settings → Users**
+2. Click **Invite User**
+3. Enter email address
+4. Select role (Admin, Builder, Customer, Agent)
+5. Send invitation
+6. User receives email and completes registration
+
+## Permissions Matrix
+
+See the full permissions matrix showing what each role can access:
+
+[View detailed permissions →](/personas)
+
+## Related Pages
+
+- [Personas](/personas) - Detailed information about user roles
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Use integrations in workflows
+- [Step Types](/platform/smartAgentSteps) - REST API Call step configuration
+- [Security](/security/general) - Security best practices and policies

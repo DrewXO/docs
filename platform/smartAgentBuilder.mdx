@@ -1,5 +1,62 @@
 ---
-title: Builder
-description: Frequently Asked Questions
-icon: ""
+title: SmartAgent Builder
+description: The primary workspace for creating and modifying SmartAgents
+icon: "wand-magic-sparkles"
 ---
+
+The **SmartAgent Builder** is the primary workspace for creating and modifying SmartAgents. It provides a visual canvas where you can configure workflows, connect steps, and deploy new versions.
+
+## Overview
+
+The SmartAgent Builder is organized into three main tabs, each serving a specific purpose in the agent development lifecycle.
+
+## Tabs
+
+### SmartAgent Profile
+
+An overview of the SmartAgent currently being viewed, including version information, deployment status, and key metrics.
+
+[Learn more about SmartAgent Profile →](/platform/smartAgentProfile)
+
+### SmartAgent Builder
+
+The canvas view where steps are configured and versions are deployed. This is where you'll spend most of your time building and refining your SmartAgent workflows.
+
+**Key Features:**
+- Visual workflow canvas
+- Drag-and-drop step configuration
+- Step connection management
+- Version control and deployment
+- Testing capabilities (Step Simulation and Play All)
+
+[Learn more about Steps →](/platform/smartAgentSteps)
+
+### SmartAction Configuration
+
+A section for modifying and editing quick actions available within a SmartAgent. Quick Actions are reusable, task-specific workflows that can be triggered by agents, SmartAgents, or timers.
+
+[Learn more about SmartActions →](/platform/smartAgentActions)
+
+## Building Workflows
+
+SmartAgent workflows are built by connecting modular steps together. Each step performs a specific function, and together they form a complete conversation flow.
+
+The builder provides:
+- **Chain View** - Sequential list of steps in the workflow
+- **Canvas View** - Visual representation of step connections and flow
+- **Version Management** - Create, test, and deploy different versions
+- **Events** - Configure triggers like "On Conversation Start" or "On First Generation Complete"
+
+## Best Practices
+
+1. **Start Simple** - Begin with a basic flow and add complexity incrementally
+2. **Test Frequently** - Use Step Simulation and Play All to validate changes
+3. **Version Control** - Create new versions for significant changes
+4. **Use Events Wisely** - Leverage conversation events for context preparation
+5. **Document Changes** - Keep track of what each version changes
+
+## Related Pages
+
+- [Steps](/platform/smartAgentSteps) - Learn about available step types
+- [SmartActions](/platform/smartAgentActions) - Configure quick actions
+- [Testing](/platform/evals) - Test and benchmark your SmartAgents
