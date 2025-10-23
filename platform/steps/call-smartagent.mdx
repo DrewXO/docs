@@ -1,0 +1,100 @@
+---
+title: Call SmartAgent
+description: Enable modular SmartAgent designs by calling other SmartAgents
+icon: "arrows-split-up-and-left"
+---
+
+The **Call SmartAgent** step allows one SmartAgent to call another, enabling modular, purpose-built designs for specific intents or functions.
+
+## Overview
+
+By allowing SmartAgents to call other SmartAgents, you can break complex workflows into manageable, reusable components. This promotes modularity and makes it easier to maintain and update individual pieces of functionality.
+
+## Use Cases
+
+### Break Complex Workflows into Manageable Sub-Agents
+Instead of building one massive SmartAgent, break it into specialized sub-agents that handle specific tasks.
+
+**Example:**
+- Main SmartAgent: Customer Service Hub
+- Sub-Agent 1: Order Status Lookup
+- Sub-Agent 2: Return Processing
+- Sub-Agent 3: Billing Inquiries
+
+### Reuse Common Logic Across Multiple SmartAgents
+Create a library of reusable SmartAgents that can be called from multiple parent workflows.
+
+**Example:**
+- Authentication SmartAgent (called by multiple workflows)
+- Address Validation SmartAgent
+- Payment Processing SmartAgent
+
+### Delegate Specific Tasks to Specialized Agents
+Route specific intents or conversation stages to specialized SmartAgents that excel at those tasks.
+
+**Example:**
+When a customer asks about technical support, delegate to a Technical Support SmartAgent with specialized knowledge and integrations.
+
+## How It Works
+
+1. **Configure the Step**: Select which SmartAgent to call
+2. **Pass Context**: Define what data to pass to the sub-agent
+3. **Execute**: The called SmartAgent runs with the provided context
+4. **Return Results**: The sub-agent returns results to the calling SmartAgent
+5. **Continue Workflow**: The main workflow continues with the results
+
+## Configuration Options
+
+### SmartAgent Selection
+Choose which SmartAgent to call from your account.
+
+### Input Mapping
+Map variables from the current conversation context to the called SmartAgent's inputs.
+
+### Output Handling
+Define how to handle the results returned from the called SmartAgent.
+
+## Benefits
+
+**Modularity**
+- Build once, use many times
+- Easier to test individual components
+- Simpler maintenance and updates
+
+**Clarity**
+- Each SmartAgent has a clear, focused purpose
+- Easier to understand and debug
+- Better documentation
+
+**Flexibility**
+- Mix and match SmartAgents for different use cases
+- Update one component without affecting others
+- Scale specific components independently
+
+## Best Practices
+
+1. **Keep Sub-Agents Focused** - Each called SmartAgent should have one clear purpose
+2. **Document Inputs/Outputs** - Clearly define what data flows in and out
+3. **Handle Errors** - Plan for cases where the called SmartAgent fails
+4. **Avoid Deep Nesting** - Don't create overly complex call chains
+5. **Test Independently** - Test each SmartAgent on its own before integrating
+
+## Example Workflow
+
+```
+Main SmartAgent: Customer Inquiry Handler
+  ↓
+  Check Intent
+  ↓
+  If order_status → Call "Order Status SmartAgent"
+  If return_request → Call "Returns SmartAgent"
+  If billing_question → Call "Billing SmartAgent"
+  ↓
+  Format and return response
+```
+
+## Related Pages
+
+- [SmartAgent Builder](/platform/smartAgentBuilder) - Build and configure SmartAgents
+- [Router Step](/platform/steps/router) - Route to different steps based on conditions
+- [Step Types Overview](/platform/smartAgentSteps) - All available step types

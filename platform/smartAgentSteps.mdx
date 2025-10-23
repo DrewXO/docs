@@ -1,5 +1,5 @@
 ---
-title: Step Types
+title: Step Types Overview
 description: Modular building blocks for SmartAgent workflows
 icon: "layer-group"
 ---
@@ -8,86 +8,64 @@ icon: "layer-group"
 
 ## Available Step Types
 
-### Call SmartAgent
-
-Allows one SmartAgent to call another, enabling modular, purpose-built designs for specific intents or functions.
-
-**Use Cases:**
-- Break complex workflows into manageable sub-agents
-- Reuse common logic across multiple SmartAgents
-- Delegate specific tasks to specialized agents
-
-### Q*
-
-A self-improving, self-learning step that learns from agent modifications to continuously improve output.
-
-**Key Features:**
-- Learns from changes made to SmartAgent configurations
-- Automatically refines responses over time
-- Requires no manual retraining
-
-### Structured Output
-
-Converts information into a controlled, structured format for use across systems, in API calls, or as conversation background data.
-
-**Use Cases:**
-- Format data for API consumption
-- Create consistent data structures
-- Extract structured information from conversations
-
-### JavaScript Code
-
-Executes logic to manipulate data, perform arithmetic, or apply conditional logic.
-
-**Capabilities:**
-- Data transformation
-- Mathematical calculations
-- Conditional branching
-- String manipulation
-- Custom business logic
-
-### Knowledge Search
-
-Retrieves specific articles based on filters and similarity search to add context to interactions.
-
-**Features:**
-- Semantic similarity matching
-- Filter-based article retrieval
-- Context injection for AI responses
-- Integration with Knowledge Management
-
-[Learn more about Knowledge Management →](/platform/knowledgeManagement)
-
-### REST API Call
-
-Connects to external systems using GET, POST, PUT, or PATCH requests with authentication support.
-
-**Features:**
-- Full HTTP method support
-- Authentication (Bearer, API Key, Basic Auth)
-- Header customization
-- Request/response transformation
-- Secure credential storage via Integrations
-
-### LLM Step
-
-Uses prompts to generate AI-driven responses — the core AI step for many SmartAgent workflows.
-
-**Key Features:**
-- Customizable prompts with dynamic variables
-- Model selection override
-- Temperature and parameter control
-- Context injection from previous steps
-
-### Router
-
-Routes workflow execution to different steps based on defined conditions (e.g., conversation stage or intent).
-
-**Use Cases:**
-- Intent-based routing
-- Conditional workflow branching
-- Stage-specific handling
-- Error handling paths
+<CardGroup cols={2}>
+  <Card
+    title="Call SmartAgent"
+    icon="arrows-split-up-and-left"
+    href="/platform/steps/call-smartagent"
+  >
+    Call other SmartAgents to enable modular, purpose-built designs
+  </Card>
+  <Card
+    title="Q* (Q-Star)"
+    icon="brain-circuit"
+    href="/platform/steps/q-star"
+  >
+    Self-improving AI that learns from modifications
+  </Card>
+  <Card
+    title="Structured Output"
+    icon="brackets-curly"
+    href="/platform/steps/structured-output"
+  >
+    Convert data into controlled, structured formats
+  </Card>
+  <Card
+    title="JavaScript Code"
+    icon="code"
+    href="/platform/steps/javascript-code"
+  >
+    Execute custom logic and data transformations
+  </Card>
+  <Card
+    title="Knowledge Search"
+    icon="book-open-reader"
+    href="/platform/steps/knowledge-search"
+  >
+    Retrieve articles from your knowledge base
+  </Card>
+  <Card
+    title="REST API Call"
+    icon="plug"
+    href="/platform/steps/rest-api-call"
+  >
+    Connect to external systems via HTTP
+  </Card>
+  <Card
+    title="LLM Step"
+    icon="sparkles"
+    href="/platform/steps/llm-step"
+  >
+    Generate AI-driven responses using prompts
+  </Card>
+  <Card
+    title="Router"
+    icon="split"
+    href="/platform/steps/router"
+  >
+    Route workflow based on conditions
+  </Card>
+</CardGroup>
 
 ## Step Features
 
@@ -173,6 +151,42 @@ Runs after the first AI response is generated to perform follow-up actions.
 3. **Test Incrementally** - Use Step Simulation to test individual steps
 4. **Name Outputs Clearly** - Use descriptive names for step outputs
 5. **Leverage Events** - Use conversation events to prepare context efficiently
+
+## Common Workflow Patterns
+
+### Linear Flow
+```
+Customer Message → LLM Step → Response
+```
+
+### Knowledge-Enhanced Response
+```
+Customer Message → Knowledge Search → LLM Step → Response
+```
+
+### API Integration
+```
+Customer Message → REST API Call → Structured Output → LLM Step → Response
+```
+
+### Conditional Routing
+```
+Customer Message → Router →
+  Intent A → SmartAgent A
+  Intent B → SmartAgent B
+  Default → General Handler
+```
+
+### Complex Workflow
+```
+Customer Message →
+  Knowledge Search →
+  JavaScript Code (process) →
+  Router →
+    Premium → REST API Call → LLM Step
+    Standard → LLM Step
+  → Response
+```
 
 ## Related Pages
 

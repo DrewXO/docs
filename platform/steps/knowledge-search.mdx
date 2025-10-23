@@ -1,0 +1,193 @@
+---
+title: Knowledge Search
+description: Retrieve knowledge articles to add context to interactions
+icon: "book-open-reader"
+---
+
+The **Knowledge Search** step retrieves specific articles based on filters and similarity search to add context to interactions.
+
+## Overview
+
+Knowledge Search enables SmartAgents to dynamically retrieve relevant information from your knowledge base and incorporate it into conversations, ensuring accurate and consistent responses.
+
+## Features
+
+### Semantic Similarity Matching
+Find articles based on meaning, not just keywords.
+
+**How It Works:**
+- Analyzes the semantic meaning of the customer's question
+- Compares against knowledge article content
+- Returns the most relevant matches
+
+### Filter-Based Article Retrieval
+Narrow results using metadata filters.
+
+**Filter Options:**
+- Namespace
+- Tags
+- Categories
+- Last updated date
+- Priority level
+
+### Context Injection for AI Responses
+Retrieved articles are automatically added to the conversation context for use by LLM steps.
+
+### Integration with Knowledge Management
+Seamlessly pulls from articles uploaded in Knowledge Management.
+
+[Learn more about Knowledge Management →](/platform/knowledgeManagement)
+
+## Retrieval Methods
+
+### Similarity Search Only
+Returns articles most similar to the query, regardless of category.
+
+**Best For:**
+- Open-ended questions
+- When you want the best match across all content
+- Exploratory searches
+
+### Filter-Based Search
+Returns articles matching specific criteria.
+
+**Best For:**
+- Category-specific searches
+- Product-specific information
+- Time-sensitive content
+
+### Combined Approach
+Apply filters first to narrow scope, then use similarity search within filtered results.
+
+**Best For:**
+- Most use cases
+- Balancing precision and relevance
+- Large knowledge bases
+
+## Configuration
+
+### Search Query
+Define what to search for:
+- Customer's latest message
+- Specific field from context
+- Combination of multiple fields
+
+### Filters
+Set criteria to narrow results:
+```
+Namespace: "product-info"
+Tags: ["returns", "policy"]
+Updated: Last 30 days
+```
+
+### Result Limit
+Specify how many articles to return (e.g., top 3 matches).
+
+### Similarity Threshold
+Set minimum similarity score (0-1) for results to be included.
+
+## Example Use Cases
+
+### Product Support
+```
+Query: Customer's question about product features
+Filter: Namespace = "product-specs"
+Return: Top 2 most relevant product articles
+```
+
+###Troubleshooting
+```
+Query: Customer's issue description
+Filter: Tags include "troubleshooting"
+Similarity: > 0.7
+Return: Top 5 relevant solutions
+```
+
+### Policy Questions
+```
+Query: Customer's policy-related question
+Filter: Namespace = "policies", Updated within 90 days
+Return: Most relevant current policy
+```
+
+## Output
+
+The Knowledge Search step returns:
+- **Articles**: Array of matching articles
+- **Scores**: Relevance scores for each article
+- **Metadata**: Article titles, IDs, and other metadata
+
+### Using Retrieved Articles
+
+**In LLM Steps:**
+Articles are automatically available as context. Reference them in prompts:
+```
+Use the following knowledge articles to answer the customer's question:
+{knowledge_search_results}
+```
+
+**In Other Steps:**
+Access article content via the step output variable.
+
+## Best Practices
+
+1. **Use Appropriate Filters** - Narrow scope for better precision
+2. **Set Reasonable Limits** - Don't retrieve more articles than needed
+3. **Monitor Performance** - Track which articles are most useful
+4. **Keep Knowledge Current** - Regularly update knowledge base
+5. **Test Queries** - Validate that searches return expected results
+
+## Common Patterns
+
+### Multi-Step Search
+```
+1. First search: Broad query to identify category
+2. Second search: Targeted query within identified category
+3. Return: Most specific, relevant article
+```
+
+### Fallback Strategy
+```
+1. Try specific search with high similarity threshold
+2. If no results, broaden search with lower threshold
+3. If still no results, use default/general article
+```
+
+### Knowledge Augmentation
+```
+1. Knowledge Search retrieves relevant articles
+2. LLM Step uses articles as context
+3. Structured Output formats the response
+4. Return to customer
+```
+
+## Troubleshooting
+
+**No Results Found**
+- Check filter criteria aren't too restrictive
+- Lower similarity threshold
+- Verify knowledge articles exist for the topic
+
+**Irrelevant Results**
+- Tighten filters
+- Increase similarity threshold
+- Review and improve article content
+
+**Slow Performance**
+- Limit number of results
+- Use filters to narrow search scope
+- Consider caching frequently accessed articles
+
+## Metrics
+
+Track Knowledge Search effectiveness:
+- **Hit Rate**: Percentage of searches returning results
+- **Usage by Article**: Which articles are retrieved most
+- **Feedback Scores**: Quality of responses using retrieved knowledge
+- **Search Patterns**: Common queries and topics
+
+## Related Pages
+
+- [Knowledge Management](/platform/knowledgeManagement) - Upload and manage articles
+- [LLM Step](/platform/steps/llm-step) - Use retrieved knowledge in AI responses
+- [Structured Output](/platform/steps/structured-output) - Format knowledge-based responses

@@ -23,12 +23,25 @@
               "platform/smartAgentProfile",
               "platform/smartAgentBuilder",
               "platform/smartAgentActions",
-              "platform/smartAgentSteps",
               "platform/settings",
               "platform/evals",
               "platform/knowledgeManagement",
               "platform/qaQueue",
               "platform/reporting"
+            ]
+          },
+          {
+            "group": "Step Types",
+            "pages": [
+              "platform/smartAgentSteps",
+              "platform/steps/call-smartagent",
+              "platform/steps/q-star",
+              "platform/steps/structured-output",
+              "platform/steps/javascript-code",
+              "platform/steps/knowledge-search",
+              "platform/steps/rest-api-call",
+              "platform/steps/llm-step",
+              "platform/steps/router"
             ]
           },
           {

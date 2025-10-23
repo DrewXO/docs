@@ -1,0 +1,208 @@
+---
+title: JavaScript Code
+description: Execute custom logic to manipulate data and control flow
+icon: "code"
+---
+
+The **JavaScript Code** step executes logic to manipulate data, perform arithmetic, or apply conditional logic within your SmartAgent workflows.
+
+## Overview
+
+The JavaScript Code step provides the flexibility to implement custom business logic, data transformations, and conditional operations that aren't covered by other step types.
+
+## Capabilities
+
+### Data Transformation
+Manipulate and reshape data from previous steps.
+
+**Examples:**
+- Convert date formats
+- Combine multiple fields
+- Parse complex strings
+- Restructure objects
+
+### Mathematical Calculations
+Perform arithmetic operations and numerical computations.
+
+**Examples:**
+- Calculate totals and subtotals
+- Apply discounts and tax
+- Compute averages and statistics
+- Financial calculations
+
+### Conditional Branching
+Implement complex conditional logic.
+
+**Examples:**
+- Multi-condition decision trees
+- Business rule evaluation
+- Eligibility checks
+- Priority calculations
+
+### String Manipulation
+Process and format text data.
+
+**Examples:**
+- Format phone numbers
+- Clean and normalize addresses
+- Generate dynamic messages
+- Extract substrings
+
+## Syntax and Environment
+
+### Supported JavaScript
+Standard ES6+ JavaScript syntax is supported.
+
+### Available Variables
+Access data from:
+- Previous step outputs
+- Conversation context
+- Background variables
+- Input parameters
+
+### Return Values
+The last expression evaluated is returned as the step output.
+
+## Example Code Snippets
+
+### Calculate Order Total
+```javascript
+const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+const tax = subtotal * 0.08;
+const shipping = subtotal > 50 ? 0 : 5.99;
+const total = subtotal + tax + shipping;
+
+return {
+  subtotal,
+  tax,
+  shipping,
+  total
+};
+```
+
+### Format Customer Name
+```javascript
+const firstName = customer.first_name.trim();
+const lastName = customer.last_name.trim();
+const fullName = `${firstName} ${lastName}`;
+
+return {
+  fullName,
+  greeting: `Hello ${firstName}!`
+};
+```
+
+### Determine Priority Level
+```javascript
+const isPremium = customer.tier === 'premium';
+const isUrgent = message.toLowerCase().includes('urgent');
+const orderValue = order.total;
+
+let priority;
+if (isPremium && isUrgent) {
+  priority = 'critical';
+} else if (isPremium || orderValue > 500) {
+  priority = 'high';
+} else if (isUrgent) {
+  priority = 'medium';
+} else {
+  priority = 'normal';
+}
+
+return { priority };
+```
+
+### Parse and Validate Email
+```javascript
+const email = input.email.toLowerCase().trim();
+const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const domain = email.split('@')[1];
+
+return {
+  email,
+  isValid,
+  domain,
+  isBusinessEmail: !['gmail.com', 'yahoo.com', 'hotmail.com'].includes(domain)
+};
+```
+
+## Best Practices
+
+1. **Keep It Simple** - Break complex logic into multiple steps
+2. **Handle Errors** - Use try-catch for operations that might fail
+3. **Validate Inputs** - Check that required data exists before using it
+4. **Comment Your Code** - Explain non-obvious logic
+5. **Return Structured Data** - Make outputs easy to use in subsequent steps
+
+## Common Use Cases
+
+### Data Validation
+Check that data meets requirements before proceeding.
+
+```javascript
+const errors = [];
+if (!customer.email) errors.push('Email required');
+if (!customer.phone) errors.push('Phone required');
+if (order.total < 0) errors.push('Invalid order total');
+
+return {
+  isValid: errors.length === 0,
+  errors
+};
+```
+
+### Business Rules
+Implement organization-specific logic.
+
+```javascript
+const canReturn =
+  order.date > Date.now() - (30 * 24 * 60 * 60 * 1000) && // Within 30 days
+  !order.final_sale && // Not final sale
+  order.status === 'delivered'; // Already delivered
+
+return { canReturn };
+```
+
+### Dynamic Content Generation
+Create customized messages based on context.
+
+```javascript
+const timeOfDay = new Date().getHours();
+let greeting;
+if (timeOfDay < 12) greeting = 'Good morning';
+else if (timeOfDay < 18) greeting = 'Good afternoon';
+else greeting = 'Good evening';
+
+return {
+  greeting: `${greeting}, ${customer.firstName}!`
+};
+```
+
+## Error Handling
+
+### Try-Catch Blocks
+```javascript
+try {
+  const result = complexOperation(data);
+  return { success: true, result };
+} catch (error) {
+  return { success: false, error: error.message };
+}
+```
+
+### Null Safety
+```javascript
+const orderTotal = order?.items?.reduce((sum, item) => sum + item.price, 0) ?? 0;
+```
+
+## Limitations
+
+- **Execution Time**: Keep operations fast to avoid timeouts
+- **External APIs**: Use REST API Call step for external requests
+- **Security**: Cannot access file system or make network calls directly
+
+## Related Pages
+
+- [Structured Output](/platform/steps/structured-output) - Transform data into defined formats
+- [Router](/platform/steps/router) - Route based on conditions
+- [LLM Step](/platform/steps/llm-step) - Generate AI-driven responses

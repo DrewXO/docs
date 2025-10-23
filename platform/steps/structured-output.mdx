@@ -1,0 +1,163 @@
+---
+title: Structured Output
+description: Convert information into controlled, structured formats
+icon: "brackets-curly"
+---
+
+The **Structured Output** step converts information into a controlled, structured format for use across systems, in API calls, or as conversation background data.
+
+## Overview
+
+Structured Output takes unstructured or semi-structured data from conversations and transforms it into well-defined, predictable formats that can be consumed by APIs, databases, and other systems.
+
+## Use Cases
+
+### Format Data for API Consumption
+Transform conversation data into JSON, XML, or other formats required by external APIs.
+
+**Example:**
+Convert "I need to return my blue shirt, size medium, order #12345" into:
+```json
+{
+  "action": "return",
+  "item": "shirt",
+  "color": "blue",
+  "size": "medium",
+  "order_id": "12345"
+}
+```
+
+### Create Consistent Data Structures
+Ensure data follows a predictable schema regardless of how customers phrase their requests.
+
+**Benefits:**
+- Reliable downstream processing
+- Easier integration with other systems
+- Reduced parsing errors
+
+### Extract Structured Information from Conversations
+Pull specific fields from natural language into structured records.
+
+**Example:**
+Extract customer information:
+```json
+{
+  "name": "John Smith",
+  "email": "john@example.com",
+  "phone": "555-0123",
+  "preferred_contact": "email"
+}
+```
+
+## Configuration
+
+### Output Schema
+Define the structure you want the output to follow:
+- Field names
+- Data types
+- Required vs. optional fields
+- Validation rules
+
+### Source Data
+Specify where to pull data from:
+- Current message
+- Conversation history
+- Previous step outputs
+- Background context
+
+### Format Type
+Choose the output format:
+- JSON
+- XML
+- CSV
+- Custom formats
+
+## How It Works
+
+1. **Input**: Receives unstructured or semi-structured data
+2. **Parse**: Extracts relevant information using AI
+3. **Transform**: Maps extracted data to defined schema
+4. **Validate**: Ensures output matches specified structure
+5. **Output**: Returns structured data for downstream use
+
+## Benefits
+
+**Reliability**
+- Predictable output format
+- Consistent field names
+- Type-safe data
+
+**Integration**
+- Easy to consume by APIs
+- Compatible with databases
+- Works with automation tools
+
+**Flexibility**
+- Adapts to various input formats
+- Handles missing fields gracefully
+- Supports complex nested structures
+
+## Example Schemas
+
+### Order Information
+```json
+{
+  "order_id": "string",
+  "status": "pending|shipped|delivered",
+  "items": [{
+    "sku": "string",
+    "quantity": number,
+    "price": number
+  }],
+  "total": number
+}
+```
+
+### Customer Support Ticket
+```json
+{
+  "ticket_id": "string",
+  "category": "string",
+  "priority": "low|medium|high",
+  "description": "string",
+  "customer_id": "string",
+  "created_at": "ISO 8601 timestamp"
+}
+```
+
+## Best Practices
+
+1. **Define Clear Schemas** - Document expected structure thoroughly
+2. **Handle Missing Data** - Plan for optional fields
+3. **Validate Outputs** - Check that generated structures are valid
+4. **Use Type Safety** - Specify data types for each field
+5. **Test Edge Cases** - Verify behavior with incomplete inputs
+
+## Common Patterns
+
+### Data Enrichment
+Combine conversation data with existing records to create enriched outputs.
+
+### Multi-Step Extraction
+Use multiple Structured Output steps to build complex hierarchical data.
+
+### Validation Pipeline
+Follow Structured Output with validation logic to ensure data quality.
+
+## Error Handling
+
+**Missing Required Fields**
+- Define default values
+- Trigger fallback workflows
+- Request clarification from customer
+
+**Invalid Data Types**
+- Apply type coercion when safe
+- Reject and log invalid inputs
+- Provide clear error messages
+
+## Related Pages
+
+- [JavaScript Code](/platform/steps/javascript-code) - Further manipulate structured data
+- [REST API Call](/platform/steps/rest-api-call) - Send structured data to external systems
+- [LLM Step](/platform/steps/llm-step) - Generate the initial unstructured data
