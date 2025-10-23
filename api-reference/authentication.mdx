@@ -1,0 +1,75 @@
+---
+title: Authentication
+description: Get your API token to access XtendOps APIs
+icon: "key"
+---
+
+## Overview
+
+All XtendOps API endpoints require authentication using a Bearer token passed in the `Authorization` header.
+
+## Getting Your API Token
+
+API tokens are currently provisioned by the XtendOps team on a per-organization basis.
+
+<Card
+  title="Request API Access"
+  icon="envelope"
+  href="mailto:support@xtendops.com"
+>
+  Contact your XtendOps teammate to request an API authentication token for your organization.
+</Card>
+
+## Using Your Token
+
+Once you receive your token, include it in the `Authorization` header of all API requests:
+
+```bash
+Authorization: YOUR_API_TOKEN_HERE
+```
+
+### Example Request
+
+```bash
+curl --location 'https://agent-assist.xtendops.com/api/agent-assist' \
+  --header 'Authorization: YOUR_API_TOKEN_HERE' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+    "question": "How can I help you?",
+    "aiAgentId": "your-agent-id",
+    "conversationId": "unique-conversation-id"
+  }'
+```
+
+## Security Best Practices
+
+<Warning>
+  **Never share your API token publicly** or commit it to version control systems. Treat your API token like a password.
+</Warning>
+
+1. **Store Securely** - Keep your token in environment variables or secure secret management systems
+2. **Rotate Regularly** - Contact your XtendOps teammate to rotate tokens periodically
+3. **Monitor Usage** - Track API usage to detect any unauthorized access
+4. **Use HTTPS Only** - All API requests must use HTTPS to ensure token security
+
+## Token Scopes and Permissions
+
+Your API token's permissions are configured based on your organization's needs. If you need additional access or have questions about your token's capabilities, contact your XtendOps teammate.
+
+## Troubleshooting
+
+### 401 Unauthorized Error
+
+If you receive a 401 error:
+- Verify your token is included in the `Authorization` header
+- Ensure there are no extra spaces or characters in the token
+- Confirm your token hasn't expired
+- Contact your XtendOps teammate if issues persist
+
+### Token Expiration
+
+API tokens do not automatically expire, but may be revoked for security reasons. If your token stops working, contact your XtendOps teammate for a replacement.
+
+## Related Pages
+
+- [Agent Assist API](/api-reference/agent-assist) - Use the Agent Assist endpoint with your token

@@ -1,33 +1,178 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: API Reference
+description: Integrate XtendOps AI capabilities into your applications
+icon: "code"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Overview
 
-## Welcome
+The XtendOps API allows you to programmatically access SmartAgent capabilities, enabling you to integrate AI-powered customer support into your existing platforms and workflows.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Getting Started
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+<Steps>
+  <Step title="Get Your API Token">
+    Contact your XtendOps teammate to request an API authentication token for your organization.
+
+    [Learn more about authentication →](/api-reference/authentication)
+  </Step>
+
+  <Step title="Configure Your SmartAgent">
+    Build and configure a SmartAgent in the XtendOps platform that will power your API responses.
+
+    [SmartAgent Builder documentation →](/platform/smartAgentBuilder)
+  </Step>
+
+  <Step title="Make Your First Request">
+    Use the Agent Assist API to generate AI-powered responses for your customer conversations.
+
+    [Agent Assist API documentation →](/api-reference/agent-assist)
+  </Step>
+</Steps>
+
+## Available Endpoints
+
+<CardGroup cols={2}>
+  <Card
+    title="Agent Assist API"
+    icon="robot"
+    href="/api-reference/agent-assist"
+  >
+    Generate AI-powered responses using SmartAgents
+  </Card>
+
+  <Card
+    title="Authentication"
+    icon="key"
+    href="/api-reference/authentication"
+  >
+    Learn how to authenticate your API requests
+  </Card>
+</CardGroup>
+
+## API Base URL
+
+All API endpoints are available at:
+
+```
+https://agent-assist.xtendops.com/api
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require authentication using a Bearer token passed in the `Authorization` header:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+Authorization: YOUR_API_TOKEN
 ```
+
+<Card
+  title="Get Your API Token"
+  icon="envelope"
+  href="/api-reference/authentication"
+>
+  Contact your XtendOps teammate to request access
+</Card>
+
+## Request Format
+
+All API requests should:
+- Use HTTPS
+- Include `Content-Type: application/json` header
+- Include your authentication token in the `Authorization` header
+- Send data in JSON format
+
+## Response Format
+
+API responses are returned in JSON format and include:
+- Response data from the SmartAgent
+- Conversation metadata
+- Processing information
+- Error messages (when applicable)
+
+## Error Handling
+
+The API uses standard HTTP response codes:
+
+| Code | Description |
+|------|-------------|
+| 200 | Success - Request completed successfully |
+| 400 | Bad Request - Invalid request parameters |
+| 401 | Unauthorized - Invalid or missing authentication token |
+| 404 | Not Found - Requested resource doesn't exist |
+| 429 | Too Many Requests - Rate limit exceeded |
+| 500 | Internal Server Error - Server-side error occurred |
+
+## Rate Limits
+
+Rate limits are configured per organization. Contact your XtendOps teammate for:
+- Your current rate limits
+- Request rate limit increases
+- Best practices for high-volume use cases
+
+## Support
+
+For API support, questions, or to request additional features:
+
+- **Technical Issues**: Contact your XtendOps teammate
+- **Documentation Feedback**: Report issues or suggest improvements
+- **Feature Requests**: Discuss new capabilities with your account team
+
+## Quick Start Example
+
+Here's a complete example to get you started:
+
+```bash
+curl --location 'https://agent-assist.xtendops.com/api/agent-assist' \
+  --header 'Authorization: YOUR_API_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+    "question": "How do I track my order?",
+    "aiAgentId": "your-smartagent-id",
+    "conversationId": "unique-conversation-id",
+    "humanAgentId": "your-agent-id",
+    "responseType": "json",
+    "overrides": {
+      "inputs": {
+        "customer_tier": "premium",
+        "order_number": "12345"
+      }
+    }
+  }'
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Authentication Guide"
+    icon="key"
+    href="/api-reference/authentication"
+  >
+    Set up your API authentication
+  </Card>
+
+  <Card
+    title="Agent Assist API"
+    icon="robot"
+    href="/api-reference/agent-assist"
+  >
+    Learn about the Agent Assist endpoint
+  </Card>
+
+  <Card
+    title="SmartAgent Builder"
+    icon="wand-magic-sparkles"
+    href="/platform/smartAgentBuilder"
+  >
+    Configure your SmartAgents
+  </Card>
+
+  <Card
+    title="Platform Overview"
+    icon="layer-group"
+    href="/introduction"
+  >
+    Explore XtendOps platform features
+  </Card>
+</CardGroup>
